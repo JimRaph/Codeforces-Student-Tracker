@@ -173,13 +173,11 @@ export default function StudentTable({ onViewDetails }: StudentTableProps) {
       setToastMessage('Preparing CSV export...');
       const response = await api.get('/students/export/csv', {
         params: { filter },
-        responseType: 'blob', // important for binary data
+        responseType: 'blob', 
       });
 
-      // Create a blob from the response
       const blob = new Blob([response.data], { type: 'text/csv;charset=utf-8;' });
 
-      // Use FileSaver to trigger download with a filename
       FileSaver.saveAs(blob, 'students.csv');
 
       setToastMessage('CSV download started');
@@ -193,10 +191,10 @@ export default function StudentTable({ onViewDetails }: StudentTableProps) {
   };
 
   return (
-    <div className="max-w-7xl mx-auto p-4 py-8 dark:text-zinc-50 transition-colors">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 space-y-4 sm:space-y-0">
-        <h1 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-          Enrolled Students
+    <div className="w-full max-w-7xl mx-auto p-4 py-8 dark:text-zinc-50 transition-colors">
+      <div className="flex flex-col  md:items-center md:justify-between mb-8 space-y-4 md:space-y-0">
+        <h1 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 pb-4">
+          Enrolled Students Codeforces Student Tracker
         </h1>
         <div className="flex flex-col sm:flex-row gap-4">
           <input
@@ -204,7 +202,7 @@ export default function StudentTable({ onViewDetails }: StudentTableProps) {
             placeholder="Search students..."
             value={filter}
             onChange={handleSearchChange}
-            className="border border-zinc-200 dark:border-zinc-800 rounded-md px-3 py-2 w-full sm:w-80 bg-white dark:bg-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:focus:ring-zinc-100 dark:text-zinc-100 transition-all text-sm"
+            className="border border-zinc-200 dark:border-zinc-800 rounded-md px-3 py-2  bg-white dark:bg-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:focus:ring-zinc-100 dark:text-zinc-100 transition-all text-sm"
           />
           <div className="flex gap-2">
             <button
@@ -223,8 +221,7 @@ export default function StudentTable({ onViewDetails }: StudentTableProps) {
         </div>
       </div>
 
-      <div className="overflow-hidden border border-zinc-200 dark:border-zinc-800 rounded-xl shadow-sm bg-white dark:bg-zinc-900">
-        <div className="overflow-x-auto">
+      <div className="w-full overflow-x-auto border border-zinc-200 dark:border-zinc-800 rounded-xl shadow-sm bg-white dark:bg-zinc-900">
           <table className="min-w-full divide-y divide-zinc-200 dark:divide-zinc-800">
             <thead className="bg-zinc-50 dark:bg-zinc-900/50">
               <tr>
@@ -294,7 +291,6 @@ export default function StudentTable({ onViewDetails }: StudentTableProps) {
               )}
             </tbody>
           </table>
-        </div>
       </div>
 
       {/* Pagination */}
