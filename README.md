@@ -39,8 +39,8 @@ This project synchronizes Codeforces data for students, including their contest 
 ### Installation
 
 1. Clone the repository:
-git clone https://github.com/JimRaph/Codeforces-Data-Analysis
-cd codeforces-student-sync
+git clone  https://github.com/JimRaph/Codeforces-Student-Tracker.git
+cd Codeforces-Student-Tracker
 
 2. Install dependencies:
 npm install
