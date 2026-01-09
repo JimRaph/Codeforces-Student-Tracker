@@ -46,10 +46,10 @@ cd Codeforces-Student-Tracker
 npm install
 
 3. Create a `.env` file in the root directory with the following variables:
-MONGODB_URI=
-EMAIL_USER=your-email@gmail.com
-EMAIL_PASS=your-email-password-or-app-password
-CLIENT_URL=frontend url
+- MONGODB_URI=
+- EMAIL_USER=your-email@gmail.com
+- EMAIL_PASS=your-email-password-or-app-password
+- CLIENT_URL=frontend url
 
 4. Seed initial sync configuration (optional but recommended):
 uncomment the seeding functions in the index.js for the first run- seedStudentsFromRatedList(), seedSyncConfig();
