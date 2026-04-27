@@ -14,5 +14,5 @@ jobs:
         run: |
           docker run --rm mongo:7 mongosh "$MONGODB_URI" --eval "db.adminCommand({ ping: 1})" --quiet
         env:
-          MONGO_URI: ${{ secrets.MONGO_URL }}
+          MONGODB_URI: ${{ secrets.MONGO_URL }}
           
