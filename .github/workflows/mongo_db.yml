@@ -1,0 +1,18 @@
+name: Ping Mongodb
+
+on: 
+  schedule:
+    - cron: "0 0 * * 1,3"
+    
+  workflow_dispatch:
+
+jobs:
+  ping-mongodb:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ping mongo
+        run: |
+          docker run --rm mongo:7 mongosh "$MONGODB_URI" --eval "db.adminCommand({ ping: 1})" --quiet
+        env:
+          MONGO_URI: ${{ secrets.MONGO_URL }}
+          
